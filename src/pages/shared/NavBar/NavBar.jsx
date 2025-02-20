@@ -9,7 +9,7 @@ const NavBar = () => {
     const { user, signOutUser } = useAuth();
 
 
-    // basic
+    // basic below
     const [profilePhoto, setProfilePhoto] = useState(null);
     const [userName, setUserName] = useState('');
 
@@ -39,7 +39,7 @@ const NavBar = () => {
             .catch(error => console.log('ERROR', error.message))
     }
 
-    // basic
+    // basic above
 
 
 

@@ -76,6 +76,7 @@ const Board = () => {
 
 
 
+
             <br />
             <br />
             <hr />
@@ -85,8 +86,6 @@ const Board = () => {
             {/* old code below */}
             <div className="min-h-screen bg-base-200 px-7 md:px-14 lg:px-28">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-14 lg:pb-0 pt-4 md:pt-7 lg:pt-12 gap-10">
-
-
 
 
                     {/* Card-1 -- To-Do */}
