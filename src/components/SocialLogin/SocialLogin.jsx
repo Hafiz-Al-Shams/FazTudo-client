@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 
@@ -14,36 +14,29 @@ const SocialLogin = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                // console.log('Login successful: ', result.user.email);
                 const userInfo = {
                     name: result.user?.displayName,
                     email: result.user?.email,
                     role: 'user',
                 }
-
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: 'Google Login Successful',
-                    showConfirmButton: false,
-                    timer: 1000
-                });
+                console.log('Login successful: ', result.user.email);
+                console.log('userInfo: ', userInfo);
 
 
-                // axiosPublic.post('/users', userInfo)
-                //     .then(res => {
-                //         // console.log(res.data);
-                // Swal.fire({
-                //     position: "center",
-                //     icon: "success",
-                //     title: 'Google Login Successful',
-                //     showConfirmButton: false,
-                //     timer: 1000
-                // });
-                //         // navigate('/');
-                //     })
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        // console.log(res.data);
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: 'Google Login Successful',
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
+                        console.log('axios working fucker!!!!yessssss!!!!', res.data.message);
+                        // navigate('/');
+                    })
 
-                // navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log('ERROR', error.message);
