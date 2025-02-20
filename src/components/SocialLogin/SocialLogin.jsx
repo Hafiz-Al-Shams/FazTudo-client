@@ -22,8 +22,8 @@ const SocialLogin = () => {
                     email: result.user?.email,
                     role: 'user',
                 }
-                console.log('Login successful: ', result.user.email);
-                console.log('userInfo: ', userInfo);
+                // console.log('Login successful: ', result.user.email);
+                // console.log('userInfo: ', userInfo);
 
 
                 axiosPublic.post('/users', userInfo)
@@ -36,7 +36,7 @@ const SocialLogin = () => {
                             showConfirmButton: false,
                             timer: 1000
                         });
-                        console.log('axios working !!!!yessssss!!!!', res.data.message);
+                        // console.log('axios working !!!!yessssss!!!!', res.data.message);
                         navigate('/my-faztudo-board');
                     })
 
