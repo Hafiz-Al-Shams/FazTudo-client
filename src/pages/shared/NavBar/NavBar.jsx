@@ -17,11 +17,7 @@ const NavBar = () => {
         if (user) {
             setProfilePhoto(user.photoURL);
             setUserName(user.displayName);
-            // setLoading(false);
-            // console.log(user.photoURL);
-            // console.log(user.displayName);
         }
-        // setLoading(false);
     }, [user]);
 
 

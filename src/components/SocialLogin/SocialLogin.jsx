@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,6 +10,8 @@ const SocialLogin = () => {
 
     const { signInWithGoogle } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
+
+    const navigate = useNavigate();
 
 
     const handleGoogleSignIn = () => {
@@ -33,8 +36,8 @@ const SocialLogin = () => {
                             showConfirmButton: false,
                             timer: 1000
                         });
-                        console.log('axios working fucker!!!!yessssss!!!!', res.data.message);
-                        // navigate('/');
+                        console.log('axios working !!!!yessssss!!!!', res.data.message);
+                        navigate('/my-faztudo-board');
                     })
 
             })
