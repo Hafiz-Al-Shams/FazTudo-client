@@ -36,7 +36,7 @@ const TaskCard = ({ task }) => {
                         className="btn btn-sm btn-P">Edit</button>
                     <button
                         // onClick={() => onDelete(task.id)}
-                        className="btn btn-sm btn-D">X</button>
+                        className="btn btn-sm bg-neutral-500 text-white">X</button>
                 </div>
             </div>
         </div>

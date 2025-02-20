@@ -2,6 +2,7 @@ import NavBar from "../pages/shared/NavBar/NavBar";
 import { useState } from "react";
 import { closestCorners, DndContext } from "@dnd-kit/core";
 import Column from "../components/SocialLogin/Column";
+import Footer from "../pages/Footer";
 
 
 
@@ -214,6 +215,8 @@ const Board = () => {
             {/* old code above */}
 
 
+
+            <Footer></Footer>
         </div>
     );
 };
