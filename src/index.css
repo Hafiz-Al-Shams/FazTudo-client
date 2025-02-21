@@ -18,3 +18,7 @@
     background-color: #c93e3e;
     color: white;
 }
+
+.task {
+    touch-action: none;
+}
