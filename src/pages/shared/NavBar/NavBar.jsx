@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -48,7 +49,12 @@ const NavBar = () => {
         <>
             <div className="navbar shadow-sm px-2.5 md:px-8 lg:px-16" style={{ backgroundColor: "#2865A0" }}>
                 <div className="flex-1 text-white">
-                    <a className="btn btn-ghost text-xl">FazTudo</a>
+                    <Link to="/">
+                        <h4 className="text-2xl font-semibold">FazTudo</h4>
+                    </Link>
+
+                    {/* <a className="btn btn-ghost text-xl">FazTudo</a> */}
+
                 </div>
                 {
                     user &&
