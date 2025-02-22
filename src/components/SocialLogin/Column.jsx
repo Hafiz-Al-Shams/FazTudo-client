@@ -1,6 +1,6 @@
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import TaskCard from "./TaskCard";
-import { useDroppable } from "@dnd-kit/core";
+// import { useDroppable } from "@dnd-kit/core";
 
 
 
@@ -19,9 +19,9 @@ const Column = ({ title, tasks, category }) => {
                 <div className="card-body space-y-3 md:space-y-5">
                     <h2 className="card-title text-neutral-700 font-bold text-2xl">{title}</h2>
 
-                    <SortableContext items={tasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
+                    <SortableContext items={tasks.map(task => task._id)} strategy={verticalListSortingStrategy}>
                         {tasks.map(task => (
-                            <TaskCard key={task.id} task={task} category={category} />
+                            <TaskCard key={task._id} task={task} category={category} />
                         ))}
                     </SortableContext>
 

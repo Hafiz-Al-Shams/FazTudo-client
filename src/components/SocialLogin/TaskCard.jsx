@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities"
 
 const TaskCard = ({ task }) => {
     const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-        id: task.id,
+        id: task._id,
         animateLayoutChanges: () => false, // Prevent slow animations
     });
 
@@ -40,7 +40,7 @@ const TaskCard = ({ task }) => {
                         //  onClick={() => onEdit(task)} 
                         className="btn btn-sm md:btn-md btn-P">Edit</button>
                     <button
-                        // onClick={() => onDelete(task.id)}
+                        // onClick={() => onDelete(task._id)}
                         className="btn btn-sm md:btn-md bg-neutral-500 text-white">X</button>
                 </div>
             </div>
