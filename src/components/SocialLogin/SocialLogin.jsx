@@ -37,7 +37,7 @@ const SocialLogin = () => {
                             timer: 1000
                         });
                         // console.log('axios working !!!!yessssss!!!!', res.data.message);
-                        navigate('/my-faztudo-board');
+                        navigate('/my-tudo-board');
                     })
 
             })

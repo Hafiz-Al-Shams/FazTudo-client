@@ -206,7 +206,7 @@ const Board = () => {
 
             {/* add new Task Modal below */}
             {isModalOpen && (
-                <div className="fixed inset-0 flex justify-center items-center bg-white/25">
+                <div className="fixed inset-0 flex justify-center items-center bg-black/50">
                     <div className="modal modal-open">
                         <div className="modal-box p-7 md:p-8 lg:p-10">
 

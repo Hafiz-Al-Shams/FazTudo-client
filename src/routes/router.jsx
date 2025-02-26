@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: "my-faztudo-board",
+        path: "my-tudo-board",
         element: <PrivateRoute><Board></Board></PrivateRoute>,
         // children: [
         //     {

@@ -13,7 +13,7 @@ const Home = () => {
     // Redirect user and return early if user is logged in
     useEffect(() => {
         if (user) {
-            navigate("/my-faztudo-board");
+            navigate("/my-tudo-board");
         }
     }, [user, navigate]);
 

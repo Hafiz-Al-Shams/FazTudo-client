@@ -10,7 +10,7 @@ const ErrorPage = () => {
                     <p className="mt-4 mb-10 text-xl md:text-4xl font-semibold">Oops! It seems like you may have taken a wrong turn!</p>
                     <p className="mt-3 text-neutral/85 text-xl font-medium">{`Let's get you back home safely!`}</p>
                     <div className="mt-2">
-                        <Link to="/my-faztudo-board" className="">
+                        <Link to="/my-tudo-board" className="">
                             <button className="btn btn-wide btn-neutral">Back to Home</button>
                         </Link>
                     </div>

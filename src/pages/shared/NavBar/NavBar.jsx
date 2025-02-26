@@ -50,7 +50,7 @@ const NavBar = () => {
             <div className="navbar shadow-sm px-2.5 md:px-8 lg:px-16" style={{ backgroundColor: "#2865A0" }}>
                 <div className="flex-1 text-white">
                     <Link to="/">
-                        <h4 className="text-2xl font-semibold">FazTudo</h4>
+                        <h4 className="text-2xl font-semibold">TudoSpeedo</h4>
                     </Link>
 
                     {/* <a className="btn btn-ghost text-xl">FazTudo</a> */}
