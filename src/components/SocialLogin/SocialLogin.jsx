@@ -18,6 +18,7 @@ const SocialLogin = () => {
         signInWithGoogle()
             .then(result => {
                 const userInfo = {
+                    userId: result.user?.uid,
                     name: result.user?.displayName,
                     email: result.user?.email,
                     role: 'user',

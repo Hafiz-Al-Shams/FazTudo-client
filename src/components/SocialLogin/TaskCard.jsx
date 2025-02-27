@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities"
+import { Link } from "react-router-dom";
 
 
 
@@ -21,6 +22,10 @@ const TaskCard = ({ task }) => {
         opacity: isDragging ? 0.8 : 1,
     };
 
+
+
+
+
     return (
         <div
             ref={setNodeRef}
@@ -36,14 +41,16 @@ const TaskCard = ({ task }) => {
 
                 {/* Action Buttons */}
                 <div className="flex justify-end gap-2 mt-1">
-                    <button
-                        //  onClick={() => onEdit(task)} 
-                        className="btn btn-sm md:btn-md btn-P">Edit</button>
-                    <button
-                        // onClick={() => onDelete(task._id)}
-                        className="btn btn-sm md:btn-md bg-neutral-500 text-white">X</button>
+                    <Link to={`/update-tasks/${task._id}`}>
+                        <button
+
+                            className="btn btn-sm md:btn-md btn-P">Details</button>
+                    </Link>
                 </div>
             </div>
+
+
+
         </div>
     );
 };

@@ -3,6 +3,8 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
+import logo from '../../../assets/logo.png'
+
 
 
 const NavBar = () => {
@@ -50,7 +52,12 @@ const NavBar = () => {
             <div className="navbar shadow-sm px-2.5 md:px-8 lg:px-16" style={{ backgroundColor: "#2865A0" }}>
                 <div className="flex-1 text-white">
                     <Link to="/">
-                        <h4 className="text-2xl font-semibold">TudoSpeedo</h4>
+                        <div className="flex items-center space-x-0.5">
+                            <div className="">
+                                <img className="w-7" src={logo} alt="logo" />
+                            </div>
+                            <h4 className="text-lg md:text-xl lg:text-2xl font-semibold">TudoSpeedo</h4>
+                        </div>
                     </Link>
 
                     {/* <a className="btn btn-ghost text-xl">FazTudo</a> */}
