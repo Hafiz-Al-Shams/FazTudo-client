@@ -14,24 +14,11 @@ import useAuth from "../hooks/useAuth";
 
 const Board = () => {
 
+    const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
 
-    // TODO:: have to remove  this and make 'tasks' from mongoDB every here through tanstack used below
-    // const [tasks, setTasks] = useState([
-    //     { id: "task-1", title: "demo ToDo-1", description: 'this is demo task description', category: 'To-Do' },
-    //     { id: "task-2", title: "demo In-Progress-1", description: 'this is demo task description', category: 'In Progress' },
-    //     { id: "task-3", title: "demo Done-1", description: 'this is demo task description', category: 'Done' },
-    //     { id: "task-4", title: "demo ToDo-2", description: 'this is demo task description', category: 'To-Do' },
-    //     { id: "task-5", title: "demo In-Progress-2", description: 'this is demo task description', category: 'In Progress' },
-    //     { id: "task-6", title: "demo Done-2", description: 'this is demo task description', category: 'Done' },
 
-    // ]);
-
-
-
-
-
-
+    // old working code
     const { data: tasks = [], refetch } = useQuery({
         queryKey: ['tasks'],
         queryFn: async () => {
@@ -41,8 +28,17 @@ const Board = () => {
     });
 
 
+    // new code for email query
+    // const { data: tasks = [], refetch } = useQuery({
+    //     queryKey: ['tasks', user.email], // Ensures query is updated when email changes
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get(`/tasks`, {
+    //             params: { email: user.email }, // Pass email as a query parameter
+    //         });
+    //         return res.data;
+    //     }
+    // });
 
-    // newest code1 below
 
     // Handles drag end event
     const handleDragEnd = async (event) => {
@@ -73,39 +69,6 @@ const Board = () => {
         }
     };
 
-    // newest code1 above
-
-
-    // old code below
-    // Handles drag end event
-    // const handleDragEnd = (event) => {
-    //     const { active, over } = event;
-    //     if (!over) return;
-
-    //     setTasks((prevTasks) => {
-    //         let updatedTasks = [...prevTasks];
-
-    //         const draggedTaskIndex = updatedTasks.findIndex(task => task.id === active.id);
-    //         const targetTaskIndex = updatedTasks.findIndex(task => task.id === over.id);
-
-    //         if (draggedTaskIndex === -1) return prevTasks;
-
-    //         // If dragged onto a different category, update category
-    //         if (updatedTasks[draggedTaskIndex].category !== updatedTasks[targetTaskIndex]?.category) {
-    //             updatedTasks[draggedTaskIndex].category = updatedTasks[targetTaskIndex].category;
-    //         }
-
-    //         // Reorder within category
-    //         const [movedTask] = updatedTasks.splice(draggedTaskIndex, 1);
-    //         updatedTasks.splice(targetTaskIndex, 0, movedTask);
-
-    //         return updatedTasks;
-    //     });
-    // };
-
-    // old code above
-
-
 
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -119,10 +82,6 @@ const Board = () => {
     // react hook form below
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const axiosPublic = useAxiosPublic();
-
-
-    // new code below
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -159,48 +118,34 @@ const Board = () => {
 
     };
 
-    // react hook form above
-    // new code above
-
-
-
 
 
     return (
         <div>
             <NavBar></NavBar>
-            {/* <h5>my faztudo board</h5> */}
-
-
-
-            {/* new working code below */}
             <div className="min-h-screen bg-base-200 px-7 md:px-14 lg:px-28 pt-4 md:pt-7 lg:pt-12 pb-14 lg:pb-28">
 
-                <p className="pb-1.5 md:pb-2.5 lg:pb-5 text-gray-600 text-2xl md:text-3xl lg:text-5xl text-center font-semibold">Total Tasks: {tasks.length}</p>
-                <p className="text-right text-gray-800 text-xl md:text-2xl lg:text-3xl py-4 lg:py-2.5">{`**Note** dnD works only one column to another column,`} <br /> {`dnD inside same column doesn't work!!!!`}</p>
+                <p className="pb-1.5 md:pb-2.5 lg:pb-5 text-gray-600 text-2xl md:text-3xl lg:text-4xl text-center font-semibold">Total Tasks: {tasks.length}</p>
+                <p className="bg-neutral-600/90 px-1 lg:w-6/12 mx-auto mt-3 lg:mt-0.5 mb-7 lg:mb-1.5 text-center text-white text-lg md:text-2xl py-4 lg:py-2.5">{`##Note## dnD works only one Column to another Column.`} <br /> {`***dnD inside same Column doesn't work!!!!***`}</p>
 
                 {/* add task button */}
-                <div className="pl-2.5 md:pl-5 lg:pl-7 pb-5 md:pb-8 lg:pb-10">
+                <div className="pl-2.5 md:pl-5 lg:pl-7 pb-4 md:pb-6 lg:pb-5">
                     <button className="btn btn-S" onClick={() => setIsModalOpen(true)}>Add New Task</button>
                 </div>
-
                 <DndContext sensors={sensors} collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {/* To-Do Column */}
+
                         <Column title="To-Do" tasks={tasks.filter(task => task.category === "To-Do")} category="To-Do" />
 
-                        {/* In Progress Column */}
+
                         <Column title="In Progress" tasks={tasks.filter(task => task.category === "In Progress")} category="In Progress" />
 
-                        {/* Done Column */}
+
                         <Column title="Done" tasks={tasks.filter(task => task.category === "Done")} category="Done" />
                     </div>
                 </DndContext>
+
             </div>
-
-            {/* new working code above */}
-
-
             <Footer></Footer>
 
 

@@ -17,7 +17,7 @@ const Column = ({ title, tasks, category }) => {
         <div>
             <div className="card lg:w-96 bg-base-100 card-lg shadow-xl min-h-48 md:min-h-64 lg:min-h-96">
                 <div className="card-body space-y-3 md:space-y-5">
-                    <h2 className="card-title text-neutral-700 font-bold text-2xl">{title}</h2>
+                    <h2 className="card-title text-neutral-700 font-bold text-xl lg:text-2xl">{title}</h2>
 
                     <SortableContext items={tasks.map(task => task._id)} strategy={verticalListSortingStrategy}>
                         {tasks.map(task => (
@@ -25,9 +25,9 @@ const Column = ({ title, tasks, category }) => {
                         ))}
                     </SortableContext>
 
-                    <div className="justify-end card-actions pt-1 pb-1 md:pb-2 lg:pb-3.5">
+                    {/* <div className="justify-end card-actions pt-1 pb-1 md:pb-2 lg:pb-3.5">
                         <button disabled className="btn">Add New Task</button>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

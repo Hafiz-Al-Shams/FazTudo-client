@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Board from "../layouts/Board";
 import PrivateRoute from "./PrivateRoute";
 import UpdateTask from "../components/UpdateTask";
+import Test from "../components/Test";
 
 
 const router = createBrowserRouter([
@@ -22,10 +23,18 @@ const router = createBrowserRouter([
         path: "my-tudo-board",
         element: <PrivateRoute><Board></Board></PrivateRoute>,
     },
+
+    // for testing DND
+    {
+        path: "demo",
+        element: <Test></Test>,
+    },
+
+
     {
         path: "update-tasks/:id",
         element: <PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`)
+        loader: ({ params }) => fetch(`https://faz-tudo-server.vercel.app/tasks/${params.id}`)
     },
     {
         path: "*",
