@@ -1,8 +1,7 @@
 # TudoSpeedo - Task Management Application
 
 ## Live Project  
-🔗 [TudoSpeedo Live1 -- Netlify](https://tudospeedo.netlify.app/)
-🔗 [TudoSpeedo Live2 -- Firebase](https://faztudo-8a1ba.web.app/)
+🔗 [TudoSpeedo Live](https://tudospeedo.netlify.app/)
 
 ## Overview  
 This Task Management Application will help users efficiently organize and track their tasks by providing a simple, drag-and-drop interface to manage tasks in different stages: To-Do, In Progress, and Done. With real-time updates and persistence, users can stay productive and ensure their task progress is always up-to-date across devices. The clean, responsive design ensures ease of use on both desktop and mobile.
